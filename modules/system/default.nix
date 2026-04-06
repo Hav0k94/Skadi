@@ -1,0 +1,8 @@
+{ ... }:
+
+{
+  imports = [
+    ./nftables
+    ./openssh.nix
+  ];
+}

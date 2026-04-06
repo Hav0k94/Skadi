@@ -1,0 +1,135 @@
+# starship.toml — thème "Stranger Things / Upside Down"
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Format global du prompt
+format = """
+[╔══](bold fg:#4a0080)\
+[ $username $os $hostname](fg:#7B2FBE bg:#1a0030)\
+[](fg:#1a0030 bg:#2a0008)\
+$directory\
+[](fg:#2a0008 bg:#1a0030)\
+$git_branch\
+$git_status\
+[](fg:#1a0030 bg:#2a0008)\
+[$nodejs$python$rust$golang$docker_context](fg:#cc0000 bold bg:#2a0008)\
+[](fg:#2a0008 bg:#1a0030)\
+$sudo\
+[ ](fg:#1a0030 bg:#2a0008)\
+[▓▒░▒▓](#2a0008)\
+[ ](fg:#2a0008 bg:#2a0008)\
+[─────────────────────────────────────────────────────────────────────────────](fg:#7B2FBE bg:#2a0008)\
+[ ](fg:#2a0008 bg:#2a0008)\
+[▓▒░▒▓](#2a0008)\
+[$cmd_duration $time](fg:#cc0000 bg:#2a0008)\
+[  ](fg:#4a0080)\
+[\n]()\
+[╚══](bold fg:#4a0080)\
+[$character](fg:#cc0000)\
+[❯ ](bold fg:#7B2FBE)\
+"""
+
+add_newline = false
+
+[fill]
+symbol = "─"
+style = "fg:#7B2FBE bg:#2a0008"
+
+[username]
+style_user = 'fg:#7B2FBE bg:#1a0030'
+style_root = 'fg:#8B0000 bg:#1a0030'
+show_always = true
+disabled = false
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+disabled = false
+format = '[$hostname]($style)'
+style = 'fg:#7B2FBE bg:#1a0030'
+trim_at = "."
+
+[directory]
+style = "fg:#cc0000 bold bg:#2a0008"
+format = "[  $path ]($style)"
+truncation_length = 4
+truncate_to_repo = true
+truncation_symbol = "repo: "
+read_only = " 🔒"
+read_only_style = "fg:#8B0000"
+
+[git_branch]
+format = "[$symbol $branch ]($style)"
+symbol = ""
+style = "fg:#7B2FBE bold bg:#1a0030"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+style = "fg:#7B2FBE bold bg:#1a0030"
+conflicted = "⚡"
+ahead = "↑${count}"
+behind = "↓${count}"
+diverged = "↕${ahead_count}↓${behind_count}"
+untracked = "?"
+modified = "!"
+staged = "+"
+deleted = "-"
+
+[cmd_duration]
+min_time = 1
+format = "took [$duration]($style) "
+style = "fg:#cc0000 bg:#2a0008"
+
+[time]
+disabled = false
+format = "[ $time]($style) "
+time_format = "%H:%M"
+style = "fg:#cc0000 bg:#2a0008"
+
+[character]
+success_symbol = '[🚲](bold fg:#769ff0)'
+error_symbol = '[👹](bold red) '
+
+[os]
+disabled = false
+style = "fg:#4a0080 bg:#1a0030"
+
+[nodejs]
+format = "[ $symbol ($version) ]($style)"
+style = "fg:#cc0000 bg:#2a0008"
+symbol = "󰎙"
+
+[python]
+symbol = "🐍"
+pyenv_version_name = true
+detect_extensions = []
+format = 'via [$symbol $pyenv_prefix($version)]($style)${virtualenv}'
+
+[docker_context]
+symbol = "🐳"
+format = 'via [$symbol $context](blue bold)'
+only_with_files = true
+detect_folders = ['.docker']
+detect_files = ['compose.yml', 'compose.yaml', 'docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+
+[package]
+symbol = "📦"
+format = 'via [$symbol $version](208 bold)'
+
+[sudo]
+style = 'fg:#7B2FBE bold bg:#1a0030'
+symbol = '🧙'
+format = '[as Will the Wise $symbol ]($style)'
+disabled = false
+
+# Rust
+[rust]
+format = "[ $symbol ($version) ]($style)"
+style = "fg:#cc0000 bg:#2a0008"
+symbol = ""
+
+# Golang
+[golang]
+format = "[ $symbol ($version) ]($style)"
+style = "fg:#cc0000 bg:#2a0008"
+symbol = ""

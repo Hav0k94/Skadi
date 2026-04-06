@@ -1,0 +1,126 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[░▒▓](#a3aed2)\
+[$username   $hostname](bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$php\
+$python\
+$docker_context\
+[](fg:#212736 bg:#1d2230)\
+$package\
+[ ](fg:#1d2230)\
+$sudo\
+\n$character"""
+
+right_format = "$cmd_duration $time"
+add_newline = true
+
+[username]
+style_user = 'bg:#a3aed2 fg:#090c0c'
+style_root = 'bg:#a3aed2 fg:#100303'
+show_always = true
+disabled = false
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+disabled = false
+format = "[$hostname]($style) "
+style = 'bg:#a3aed2 fg:#090c0c'
+trim_at = "."
+
+[directory]
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[  $path ]($style)"
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = "repo: "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[character]
+success_symbol = '[](bold fg:#769ff0)'
+error_symbol = '[✗](bold red) '
+
+[git_branch]
+symbol = ""
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+deleted = "x"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = "✓"
+untracked = "🤷"
+
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[python]
+symbol = "🐍"
+pyenv_version_name = true
+detect_extensions = []
+format = 'via [$symbol $pyenv_prefix($version)]($style)${virtualenv}'
+
+[docker_context]
+symbol = "🐳"
+format = 'via [$symbol $context](blue bold)'
+only_with_files = true
+detect_folders = ['.docker']
+detect_files = ['compose.yml', 'compose.yaml', 'docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+
+[package]
+symbol = "📦"
+format = 'via [$symbol $version](208 bold) '
+
+[sudo]
+style = 'fg:#769ff0'
+symbol = '🧙'
+disabled = false
+
+[time]
+disabled = false
+time_format = "%T" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[cmd_duration]
+disabled = false
+format = "took [$duration]($style)"
+min_time = 1
+style = "fg:#769ff0 bg:#394260"
+
