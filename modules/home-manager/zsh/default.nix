@@ -29,5 +29,9 @@
         };
       };
     };
+    home.file = {
+      ".config/demogorgonascii.txt".source = ../../home/dotfiles/starship/demogorgonascii.txt;
+      ".config/strangernix.txt".source = ../../home/dotfiles/starship/strangernix.txt;
+    };
   };
 }
