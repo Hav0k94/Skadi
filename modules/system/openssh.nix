@@ -52,6 +52,10 @@ in
         AllowAgentForwarding = false;
         PermitTunnel = false;
 
+        # --- Brute-force mitigation ---
+        MaxAuthTries = 3;
+        MaxSessions  = 2;
+
         # --- Stabilité des sessions ---
         ClientAliveInterval = 60;
         ClientAliveCountMax = 3;
