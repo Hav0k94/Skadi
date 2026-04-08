@@ -18,10 +18,16 @@ in
     signingKeyContent = lib.mkOption {
       type = lib.types.str;
       description = "Contenu brut de la clé publique SSH (ex: ssh-ed25519 AAAAC3Nza...)";
+      # Pas de `default` volontairement — force à le déclarer explicitement
     };
   };
 
   config = lib.mkIf cfg.enable {
+    assertions = [{
+      assertion = lib.hasPrefix "ssh-" cfg.signingKeyContent
+               || lib.hasPrefix "ecdsa-" cfg.signingKeyContent;
+      message = "myModules.git: signingKeyContent must be a valid SSH public key.";
+    }];
     programs.git = {
       enable = true;
       settings = {
