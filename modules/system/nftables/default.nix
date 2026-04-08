@@ -1,4 +1,9 @@
 { config, lib, ... }:
+
+let
+  cfg = config.myModules.nftables;
+in 
+
 {
   options.myModules.nftables = {
     enable = lib.mkEnableOption "nftables firewall";
@@ -8,9 +13,9 @@
       description = "Chemin vers le fichier nftables.conf";
     };
   };
-  config = lib.mkIf config.myModules.nftables.enable {
+  config = lib.mkIf cfg.enable {
     networking.firewall.enable = false;
     networking.nftables.enable = true;
-    networking.nftables.rulesetFile = config.myModules.nftables.configFile;
+    networking.nftables.rulesetFile = cfg.configFile;
   };
 }
