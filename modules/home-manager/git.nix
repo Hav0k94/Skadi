@@ -36,7 +36,7 @@ in
         init.defaultBranch = "main";
         pull.rebase        = true;
         # Requis pour que `git log --show-signature` fonctionne
-        gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+        gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.config/git/allowed_signers";
       };
       
       # Signer les commits avec une clé SSH (moderne, plus simple que GPG)
