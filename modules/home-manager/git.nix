@@ -18,10 +18,16 @@ in
     signingKeyContent = lib.mkOption {
       type = lib.types.str;
       description = "Contenu brut de la clé publique SSH (ex: ssh-ed25519 AAAAC3Nza...)";
+      # Pas de `default` volontairement — force à le déclarer explicitement
     };
   };
 
   config = lib.mkIf cfg.enable {
+    assertions = [{
+      assertion = lib.hasPrefix "ssh-" cfg.signingKeyContent
+               || lib.hasPrefix "ecdsa-" cfg.signingKeyContent;
+      message = "myModules.git: signingKeyContent must be a valid SSH public key.";
+    }];
     programs.git = {
       enable = true;
       settings = {
@@ -30,7 +36,7 @@ in
         init.defaultBranch = "main";
         pull.rebase        = true;
         # Requis pour que `git log --show-signature` fonctionne
-        gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+        gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.config/git/allowed_signers";
       };
       
       # Signer les commits avec une clé SSH (moderne, plus simple que GPG)
