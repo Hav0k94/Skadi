@@ -20,4 +20,5 @@
     signingKey = localenv.git.signingKey;
     signingKeyContent = localenv.git.signingKeyContent;
   };
+  myModules.sshClient.enable = true;
 }
