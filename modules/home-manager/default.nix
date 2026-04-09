@@ -6,6 +6,6 @@
     ./zsh
     ./shell-tools.nix
     ./git.nix
-    ./ssh.nix
+    ./sshclient.nix
   ];
 }
