@@ -1,5 +1,9 @@
 { config, lib, ... }:
 
+let
+  cfg = config.myModules.zsh;
+in
+
 {
   imports = [
     ./plugins.nix
@@ -11,7 +15,7 @@
     enable = lib.mkEnableOption "configuration zsh personnalisée";
   };
 
-  config = lib.mkIf config.myModules.zsh.enable {
+  config = lib.mkIf cfg.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -30,8 +34,8 @@
       };
     };
     home.file = {
-      ".config/demogorgonascii.txt".source = ../../home/dotfiles/starship/demogorgonascii.txt;
-      ".config/strangernix.txt".source = ../../home/dotfiles/starship/strangernix.txt;
+      ".config/zsh/demogorgonascii.txt".source = ../../home/dotfiles/starship/demogorgonascii.txt;
+      ".config/zsh/strangernix.txt".source = ../../home/dotfiles/starship/strangernix.txt;
     };
   };
 }
