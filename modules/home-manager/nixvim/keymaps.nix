@@ -8,11 +8,18 @@ in
   config = lib.mkIf cfg.enable {
     programs.nixvim = {
       keymaps = [
-        #NvimTree
+        # NvimTree
         {
           mode   = "n";
           key    = "<C-n>";
           action = ":NvimTreeToggle<CR>";
+        }
+        # LazyGit
+        {
+          mode    = "n";
+          key     = "<leader>gg";
+          action  = "<cmd>LazyGit<cr>";
+          options.desc = "LazyGit";
         }
       ];
       userCommands = {

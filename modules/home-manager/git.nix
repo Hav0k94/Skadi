@@ -46,6 +46,14 @@ in
         format = "ssh";
       };
     };
+    programs.lazygit = {
+      enable = true;
+      settings = {
+        gui.theme = {
+          activeBorderColor = [ "blue" "bold" ];
+        };
+      };
+    };
     home.file.".config/git/allowed_signers".text = ''
       ${localenv.user.mail} ${cfg.signingKeyContent}
     '';
