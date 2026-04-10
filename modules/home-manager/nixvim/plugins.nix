@@ -1,6 +1,11 @@
 { config, lib, ... }:
+
+let
+  cfg = config.myModules.nixvim;
+in
+
 {
-  config = lib.mkIf config.myModules.nixvim.enable {
+  config = lib.mkIf cfg.enable {
     programs.nixvim.plugins = {
       web-devicons.enable = true;
       cmp-nvim-lsp.enable = true;
@@ -10,8 +15,6 @@
       nvim-tree = {
         enable = true;
         autoClose = true;
-        openOnSetup = true;
-        openOnSetupFile = true;
         settings = {
           diagnostics.enable = true;
           modified.enable = true;
