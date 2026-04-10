@@ -6,7 +6,7 @@
       cmp-nvim-lsp.enable = true;
       luasnip.enable = true;
       smear-cursor.enable = true;
-
+      lazygit.enable = true;
       nvim-tree = {
         enable = true;
         autoClose = true;
