@@ -21,4 +21,5 @@
     signingKeyContent = localenv.git.signingKeyContent;
   };
   myModules.sshClient.enable = true;
+  myModules.tmux.enable = true;
 }
