@@ -28,7 +28,7 @@ in
       # Config brute injectée dans ~/.tmux.conf
       extraConfig = ''
         # Recharger la config sans redémarrer
-        bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+        bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded!"
 
         # Splits plus intuitifs
         bind | split-window -h -c "#{pane_current_path}"
