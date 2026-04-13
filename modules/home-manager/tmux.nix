@@ -39,6 +39,9 @@ in
         bind -n M-Right select-pane -R
         bind -n M-Up    select-pane -U
         bind -n M-Down  select-pane -D
+
+        # Synchronisation de sessions pour Multi-Exec
+        bind S set synchronize-panes \; display "Synchronize-panes: #{?synchronize-panes,ON,OFF}"
       '';
     };
   };
