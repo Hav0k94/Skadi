@@ -28,7 +28,7 @@ in
       # Config brute injectée dans ~/.tmux.conf
       extraConfig = ''
         # Recharger la config sans redémarrer
-        bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+        bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded!"
 
         # Splits plus intuitifs
         bind | split-window -h -c "#{pane_current_path}"
@@ -39,6 +39,9 @@ in
         bind -n M-Right select-pane -R
         bind -n M-Up    select-pane -U
         bind -n M-Down  select-pane -D
+
+        # Synchronisation de sessions pour Multi-Exec
+        bind S set synchronize-panes \; display "Synchronize-panes: #{?synchronize-panes,ON,OFF}"
       '';
     };
   };
