@@ -7,6 +7,9 @@ in
 {
   config = lib.mkIf cfg.enable {
     programs.zsh.initContent = ''
+      # Ansible
++     export ANSIBLE_PYTHON_INTERPRETER=/usr/bin/python3
+      #ls
       ls() { eza -al --color=always --group-directories-first --icons "$@" }
       la() { eza -a --color=always --group-directories-first --icons "$@" }
       ll() { eza -l --color=always --group-directories-first --icons "$@" }
