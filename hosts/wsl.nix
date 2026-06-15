@@ -13,6 +13,7 @@
   users.users.${localenv.user.name} = {
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
+    linger = true;
   };
 
   # This value determines the NixOS release from which the default
