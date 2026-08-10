@@ -34,8 +34,8 @@ in
       };
     };
     home.file = {
-      ".config/zsh/demogorgonascii.txt".source = ../../home/dotfiles/starship/demogorgonascii.txt;
-      ".config/zsh/strangernix.txt".source = ../../home/dotfiles/starship/strangernix.txt;
+      ".config/zsh/demogorgonascii.txt".source = ../../../home/dotfiles/starship/demogorgonascii.txt;
+      ".config/zsh/strangernix.txt".source = ../../../home/dotfiles/starship/strangernix.txt;
     };
   };
 }
