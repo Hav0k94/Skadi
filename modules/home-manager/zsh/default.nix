@@ -20,6 +20,7 @@ in
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
+      defaultKeymap = "emacs";
 
       syntaxHighlighting = {
         enable = true;

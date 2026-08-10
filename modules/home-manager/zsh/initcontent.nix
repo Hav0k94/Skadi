@@ -15,6 +15,15 @@ in
       ll() { eza -l --color=always --group-directories-first --icons "$@" }
       lt() { eza -aT --color=always --group-directories-first --icons "$@" }
       ld() { eza -ald --color=always --group-directories-first --icons .* "$@" }
+      bindkey '^[[1;5C' forward-word
+      bindkey '^[[1;5D' backward-word
+      bindkey '^[[3;5~' kill-word
+      bindkey '^H' backward-kill-word
+      bindkey '^[[1;3C' forward-word    # Alt+Droite
+      bindkey '^[[1;3D' backward-word   # Alt+Gauche
+      bindkey '^[[1;2C' forward-word    # Shift+Droite
+      bindkey '^[[1;2D' backward-word   # Shift+Gauche
+      WORDCHARS=''${WORDCHARS/\//}
       compdef _eza ls la ll lt ld
       # Lancer fastfetch au login
       if command -v fastfetch &> /dev/null; then
