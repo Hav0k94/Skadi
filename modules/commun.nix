@@ -12,5 +12,6 @@
     curl
     jq
     htop
+    wget
   ];
 }

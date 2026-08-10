@@ -16,4 +16,6 @@
   i18n.defaultLocale = "fr_FR.UTF-8";
   console.keyMap = "fr";
 
+  # Enable VScode Remote for Nixos-WSL (also requires wget to be installed)
+  programs.nix-ld.enable = true;
 }
