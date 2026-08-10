@@ -13,5 +13,6 @@
     jq
     htop
     wget
+    gnupg
   ];
 }
