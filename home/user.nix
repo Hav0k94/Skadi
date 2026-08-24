@@ -1,4 +1,4 @@
-{ starshipTheme, localenv, ... }:
+{ starshipTheme, localenv, osConfig, ... }:
 
 {
   imports = [ ../modules/home-manager ];
@@ -22,4 +22,18 @@
   };
   myModules.sshClient.enable = true;
   myModules.tmux.enable = true;
+  myModules.tools = {
+    vscode.enable = true;
+    cli.enable = true;
+    direnv.enable = true;
+    desktopApps.enable = true;
+    # Graphical terminal: only makes sense on a host with a desktop
+    # environment (see myModules.desktopEnvironment.hyprland on the system side).
+    ghostty.enable = osConfig.myModules.desktopEnvironment.hyprland.enable;
+  };
+  myModules.fastfetch.enable = true;
+
+  # Follows the system: enabled only on hosts that declare
+  # myModules.desktopEnvironment.hyprland.enable (typically the laptop).
+  myModules.hyprland.enable = osConfig.myModules.desktopEnvironment.hyprland.enable;
 }

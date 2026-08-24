@@ -24,6 +24,22 @@
   in
   {
     nixosConfigurations = {
+      # Host Laptop
+      laptop = mkHost {
+      specialArgs = { starshipTheme = "strangership"; };
+      modules = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.extraSpecialArgs = { inherit localenv; };
+          home-manager.sharedModules = [
+          nixvim.homeModules.nixvim
+          ];
+        }
+        ./hosts/laptop.nix
+	      ./configuration-laptop.nix
+        ];
+      };
+      
       # Host WSL
       wsl = mkHost {
       specialArgs = { starshipTheme = "tokyo-night"; };
