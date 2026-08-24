@@ -8,5 +8,8 @@
     ./git.nix
     ./sshclient.nix
     ./tmux.nix
+    ./tools.nix
+    ./hyprland
+    ./fastfetch.nix
   ];
 }

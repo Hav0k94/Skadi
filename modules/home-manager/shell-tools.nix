@@ -3,7 +3,7 @@
 
 let
   cfg = config.myModules.shellTools;
-  # Map themes → fichier TOML
+  # Map themes → TOML files
   themes = {
     tokyo-night = ../../home/dotfiles/starship/tokyo-night.toml;
     strangership = ../../home/dotfiles/starship/strangership.toml;
@@ -36,7 +36,6 @@ in
     home.packages = with pkgs; [
       eza        # ls moderne
       bat        # cat moderne
-      fastfetch  # system info au login
     ];
   };
 }

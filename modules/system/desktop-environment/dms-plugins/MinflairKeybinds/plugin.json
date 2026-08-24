@@ -1,0 +1,12 @@
+{
+    "id": "minflairKeybinds",
+    "name": "Minflair Keybinds",
+    "description": "Keybinds cheat sheet with a category sidebar, minflair-style",
+    "version": "1.0.0",
+    "author": "tristan",
+    "type": "daemon",
+    "capabilities": ["daemon"],
+    "icon": "keyboard",
+    "component": "./MinflairKeybindsDaemon.qml",
+    "requires_dms": ">=1.5.0"
+}

@@ -12,9 +12,6 @@
     allowedUsers = [ localenv.user.name ];
     logLevel = "INFO";
   };
-  
-  home-manager.extraSpecialArgs = { inherit starshipTheme localenv; };
-
 
   nix.settings = {
     substituters = [
