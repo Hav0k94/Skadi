@@ -31,7 +31,6 @@ config = lib.mkIf cfg.enable {
 
     (omzPlugin "git")
     (omzPlugin "sudo")
-    (omzPlugin "docker")
     (omzPlugin "history")
     ];
   };
